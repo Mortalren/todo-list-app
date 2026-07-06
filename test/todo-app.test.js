@@ -36,3 +36,12 @@ test('TOGGLE changes todo status', function (t) {
   t.end();
 });
 
+test('DELETE removes todo', function (t) {
+  const model = app.update('ADD', app.model, 'Task');
+  const id = model.todos[0].id;
+
+  const updated = app.update('DELETE', model, id);
+
+  t.equal(updated.todos.length, 0, 'Todo removed');
+  t.end();
+});
