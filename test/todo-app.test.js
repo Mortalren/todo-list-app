@@ -15,3 +15,13 @@ test("Initial model should be empty", function (t) {
 
     t.end();
 });
+
+test('ADD a new todo item', function (t) {
+  const model = JSON.parse(JSON.stringify(app.model));
+  const updatedModel = app.update('ADD', model, 'Купить молоко');
+  
+  t.equal(updatedModel.todos.length, 1, 'В списке 1 задача');
+  t.equal(updatedModel.todos[0].title, 'Купить молоко', 'Название задачи правильное');
+  t.equal(updatedModel.todos[0].done, false, 'Статус задачи - не выполнена');
+  t.end();
+});
