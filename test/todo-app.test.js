@@ -57,3 +57,16 @@ test('CLEAR_COMPLETED removes completed todos', function (t) {
   t.end();
 });
 
+test('ROUTE updates hash', function (t) {
+  const updated = app.update('ROUTE', app.model, '#/completed');
+
+  t.equal(updated.hash, '#/completed', 'Hash updated');
+  t.end();
+});
+
+test('Unknown action returns original model', function (t) {
+  const updated = app.update('UNKNOWN', app.model);
+
+  t.deepEqual(updated, app.model);
+  t.end();
+});
