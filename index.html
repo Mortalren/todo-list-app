@@ -21,10 +21,11 @@
     </header>
 
 </section>
-<script src="./lib/elmish.js"></script>
-<script src="./lib/todo-app.js"></script>
-<script>
-        mount(model, update, view, 'app', subscriptions);
-    </script>
+<script type="module">
+    import { mount } from './lib/elmish.js';
+    import { initial_model, update, view, subscriptions } from './lib/todo-app.js';
+
+    mount(initial_model, update, view, 'app', subscriptions);
+</script>
 </body>
 </html>

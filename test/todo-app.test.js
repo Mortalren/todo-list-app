@@ -1,14 +1,29 @@
-const test = require('tape');       
-const fs = require('fs');          
-const path = require('path');       
-const html = fs.readFileSync(path.resolve(__dirname, '../index.html'));
-require('jsdom-global')(html);      
-const app = require('../lib/todo-app.js');
-const id = 'test-app';              
+import test from 'tape';       
+import fs from 'fs';         
+import path from 'path';      
+import { fileURLToPath } from 'url';
+import jsdomGlobal from 'jsdom-global';        
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const html = fs.readFileSync(path.resolve(__dirname, '../index.html'), 'utf8');
+jsdomGlobal(html);
+
+import { 
+  initial_model, 
+  update, 
+  view, 
+  render_item, 
+  render_main, 
+  render_footer, 
+  subscriptions 
+} from '../lib/todo-app.js';
+
+const id = 'test-app';
 
 test("Initial model should be empty", function (t) {
 
-    t.deepEqual(app.model, {
+    t.deepEqual(initial_model, {
         todos: [],
         hash: "#/"
     });
@@ -17,8 +32,8 @@ test("Initial model should be empty", function (t) {
 });
 
 test('ADD a new todo item', function (t) {
-  const model = JSON.parse(JSON.stringify(app.model));
-  const updatedModel = app.update('ADD', model, 'Купить молоко');
+  const model = JSON.parse(JSON.stringify(initial_model));
+  const updatedModel = update('ADD', model, 'Купить молоко');
   
   t.equal(updatedModel.todos.length, 1, 'В списке 1 задача');
   t.equal(updatedModel.todos[0].title, 'Купить молоко', 'Название задачи правильное');
@@ -27,46 +42,46 @@ test('ADD a new todo item', function (t) {
 });
 
 test('TOGGLE changes todo status', function (t) {
-  const model = app.update('ADD', app.model, 'Task');
+  const model = update('ADD', initial_model, 'Task');
   const id = model.todos[0].id;
 
-  const updated = app.update('TOGGLE', model, id);
+  const updated = update('TOGGLE', model, id);
 
   t.equal(updated.todos[0].done, true, 'Todo marked as completed');
   t.end();
 });
 
 test('DELETE removes todo', function (t) {
-  const model = app.update('ADD', app.model, 'Task');
+  const model = update('ADD', initial_model, 'Task');
   const id = model.todos[0].id;
 
-  const updated = app.update('DELETE', model, id);
+  const updated = update('DELETE', model, id);
 
   t.equal(updated.todos.length, 0, 'Todo removed');
   t.end();
 });
 
 test('CLEAR_COMPLETED removes completed todos', function (t) {
-  let model = app.update('ADD', app.model, 'Task');
+  let model = update('ADD', initial_model, 'Task');
   const id = model.todos[0].id;
 
-  model = app.update('TOGGLE', model, id);
-  model = app.update('CLEAR_COMPLETED', model);
+  model = update('TOGGLE', model, id);
+  model = update('CLEAR_COMPLETED', model);
 
   t.equal(model.todos.length, 0, 'Completed todos removed');
   t.end();
 });
 
 test('ROUTE updates hash', function (t) {
-  const updated = app.update('ROUTE', app.model, '#/completed');
+  const updated = update('ROUTE', initial_model, '#/completed');
 
   t.equal(updated.hash, '#/completed', 'Hash updated');
   t.end();
 });
 
 test('Unknown action returns original model', function (t) {
-  const updated = app.update('UNKNOWN', app.model);
+  const updated = update('UNKNOWN', initial_model);
 
-  t.deepEqual(updated, app.model);
+  t.deepEqual(updated, initial_model);
   t.end();
 });
