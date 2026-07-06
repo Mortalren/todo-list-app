@@ -45,3 +45,15 @@ test('DELETE removes todo', function (t) {
   t.equal(updated.todos.length, 0, 'Todo removed');
   t.end();
 });
+
+test('CLEAR_COMPLETED removes completed todos', function (t) {
+  let model = app.update('ADD', app.model, 'Task');
+  const id = model.todos[0].id;
+
+  model = app.update('TOGGLE', model, id);
+  model = app.update('CLEAR_COMPLETED', model);
+
+  t.equal(model.todos.length, 0, 'Completed todos removed');
+  t.end();
+});
+
