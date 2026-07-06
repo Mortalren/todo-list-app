@@ -25,3 +25,14 @@ test('ADD a new todo item', function (t) {
   t.equal(updatedModel.todos[0].done, false, 'Статус задачи - не выполнена');
   t.end();
 });
+
+test('TOGGLE changes todo status', function (t) {
+  const model = app.update('ADD', app.model, 'Task');
+  const id = model.todos[0].id;
+
+  const updated = app.update('TOGGLE', model, id);
+
+  t.equal(updated.todos[0].done, true, 'Todo marked as completed');
+  t.end();
+});
+
