@@ -559,3 +559,29 @@ body.dark #register-btn {
 body.dark #register-btn:hover {
     background: #f2b6b6;
 }
+
+.priority {
+    display: inline-block;
+
+    width: 45px;
+    height: 8px;
+
+    margin-left: 12px;
+    margin-bottom: 2px;
+
+    border-radius: 10px;
+
+    vertical-align: middle;
+}
+
+.priority.low {
+    background: #f8d7da;
+}
+
+.priority.medium {
+    background: #ee8f9b;
+}
+
+.priority.high {
+    background: #c62828;
+}
