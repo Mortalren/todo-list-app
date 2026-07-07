@@ -23,10 +23,11 @@
 </section>
 <script type="module">
     import { mount } from './lib/elmish.js';
-    import { initial_model, update, view, subscriptions } from './lib/todo-app.js';
-    import { seedDefaultAccounts } from './lib/auth.js';
+    import { getInitialModel, update, view, subscriptions } from './lib/todo-app.js';
+    import { seedDefaultAccount } from './lib/auth.js';
 
-    seedDefaultAccounts();
+    await seedDefaultAccount();
+    const initial_model = getInitialModel();
     mount(initial_model, update, view, 'app', subscriptions);
 </script>
 </body>
