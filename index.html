@@ -24,7 +24,9 @@
 <script type="module">
     import { mount } from './lib/elmish.js';
     import { initial_model, update, view, subscriptions } from './lib/todo-app.js';
+    import { seedDefaultAccounts } from './lib/auth.js';
 
+    seedDefaultAccounts();
     mount(initial_model, update, view, 'app', subscriptions);
 </script>
 </body>
