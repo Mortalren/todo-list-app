@@ -127,7 +127,7 @@ body {
 	height: 34px;
 	font-size: 0;
 	position: absolute;
-	top: -52px;
+	top: -53px;
 	left: -13px;
 	-webkit-transform: rotate(90deg);
 	transform: rotate(90deg);
@@ -353,6 +353,7 @@ html .clear-completed:active {
 	text-decoration: underline;
 }
 
+
 /*
 	Hack to remove background from Mobile Safari.
 	Can't use it globally since it destroys checkboxes in Firefox
@@ -376,4 +377,19 @@ html .clear-completed:active {
 	.filters {
 		bottom: 10px;
 	}
+}
+
+.header {
+    position: relative;
+}
+
+.priority-select {
+    position: absolute;
+    right: 15px;
+    top: 23px;
+    border: none;
+    background: transparent;
+    color: #edc2c2;
+    font-size: 18px;
+    outline: none;
 }
