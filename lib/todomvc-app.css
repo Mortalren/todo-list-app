@@ -67,17 +67,14 @@ body {
 	color: #e6e6e6;
 }
 
-.todoapp h1 {
-	position: absolute;
-	top: -155px;
-	width: 100%;
-	font-size: 100px;
-	font-weight: 100;
-	text-align: center;
-	color: rgba(175, 47, 47, 0.15);
-	-webkit-text-rendering: optimizeLegibility;
-	-moz-text-rendering: optimizeLegibility;
-	text-rendering: optimizeLegibility;
+.header h1 {
+    position: absolute;
+    top: -155px;
+    width: 100%;
+    font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    color: #f0c6c6;
 }
 
 .new-todo,
@@ -404,8 +401,8 @@ body.dark .todoapp {
 }
 
 body.dark .new-todo {
-    background: #333;
-    color: white;
+    background: #daa9a9;
+    color: rgb(168, 146, 146);
 }
 
 body.dark .footer {
@@ -436,12 +433,12 @@ body.dark .filters a {
     background: none;
     border: none;
     font-size: 30px;
-    color: rgba(175, 47, 47, 0.2);
+    color: #edc2c2;
     cursor: pointer;
 }
 
 #theme-toggle:hover {
-    color: rgba(175, 47, 47, 0.4);
+    color:#cb9494;
 }
 
 #logout-btn {
@@ -469,4 +466,96 @@ body.dark #logout-btn {
 
 body.dark #logout-btn:hover {
     background: #444;
+}
+
+.login-container {
+    width: 360px;
+    margin: 80px auto;
+    padding: 35px;
+
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-container h1 {
+    margin-jeft: 150;
+    text-align: center;
+    color: #e9aeae;
+	font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    color: #f0c6c6;
+}
+
+.login-container input {
+    padding: 12px 15px;
+
+    font-size: 16px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    outline: none;
+    transition: 0.2s;
+}
+
+.login-container input:focus {
+    border-color: #e9aeae;
+    box-shadow: 0 0 6px #c89898;
+}
+
+.login-container button {
+    padding: 12px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: .2s;
+}
+
+#login-btn {
+    background: #e9aeae;
+    color: white;
+}
+
+#login-btn:hover {
+    background: #bc8181;
+}
+
+#register-btn {
+    background: #f5f5f5;
+    color: #555;
+}
+
+#register-btn:hover {
+    background: #e6e6e6;
+}
+
+body.dark .login-container {
+    background: #2f2f2f;
+    color: white;
+}
+
+body.dark .login-container input {
+    background: #444;
+    color: white;
+    border-color: #666;
+}
+
+body.dark #register-btn {
+    background: #555;
+    color: white;
+}
+
+body.dark #register-btn:hover {
+    background: #f2b6b6;
 }
