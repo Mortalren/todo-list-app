@@ -585,3 +585,31 @@ body.dark #register-btn:hover {
 .priority.high {
     background: #c62828;
 }
+
+.deadline {
+    margin-left: 10px;
+    font-size: 13px;
+    color: #db8e8e;
+}
+
+.deadline-input {
+    position: absolute;
+    top: 18px;
+    right: 90px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.deadline-input::-webkit-datetime-edit {
+    display: none;
+}
+
+.deadline-input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 1;
+}
