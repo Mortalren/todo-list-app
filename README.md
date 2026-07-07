@@ -37,3 +37,8 @@ node lib/server.js
 http://localhost:8000
 
 Деплой
+
+Тестовые данные для входа
+
+Логин: admin
+Пароль: 12345
