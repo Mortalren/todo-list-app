@@ -393,3 +393,53 @@ html .clear-completed:active {
     font-size: 18px;
     outline: none;
 }
+
+body.dark {
+    background: #1e1e1e;
+    color: white;
+}
+
+body.dark .todoapp {
+    background: #2b2b2b;
+}
+
+body.dark .new-todo {
+    background: #333;
+    color: white;
+}
+
+body.dark .footer {
+    color: #ddd;
+}
+
+body.dark .todo-list li {
+    border-bottom: 1px solid #c0c0c0;
+}
+
+body.dark .todo-list li label {
+    color: white;
+}
+
+body.dark .filters a {
+    color: #ddd;
+}
+
+.header {
+    position: relative;
+    text-align: center;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: -103px;
+    left: 405px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: rgba(175, 47, 47, 0.2);
+    cursor: pointer;
+}
+
+#theme-toggle:hover {
+    color: rgba(175, 47, 47, 0.4);
+}
