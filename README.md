@@ -42,6 +42,8 @@ http://localhost:8000
 
 Деплой
 
+https://todo-list-app-1-qqmx.onrender.com
+
 Тестовые данные для входа
 
 Логин: admin
