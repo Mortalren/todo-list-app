@@ -1,3 +1,7 @@
+[![Maintainability](https://qlty.sh/gh/Mortalren/projects/todo-list-app/maintainability.svg)](https://qlty.sh/gh/Mortalren/projects/todo-list-app)
+
+[![Code Coverage](https://qlty.sh/gh/Mortalren/projects/todo-list-app/coverage.svg)](https://qlty.sh/gh/Mortalren/projects/todo-list-app)
+
 Todo List App
 Описание проекта
 Todo List App представляет собой веб-приложение для управления списком задач. Пользователь может зарегистрироваться, войти в систему, создавать задачи, задавать им приоритет и дедлайн, отмечать выполнение, а также переключаться между светлой и тёмной темами оформления. Данные пользователей и задач сохраняются в Local Storage, а пароли хранятся в виде SHA-256-хеша.
